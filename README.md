@@ -1,0 +1,2 @@
+# java_application
+grants
