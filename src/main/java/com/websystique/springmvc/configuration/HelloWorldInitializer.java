@@ -1,5 +1,5 @@
 package com.websystique.springmvc.configuration;
-// class
+// class file
 import javax.servlet.Filter;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
