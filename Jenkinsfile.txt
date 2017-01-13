@@ -1,0 +1,6 @@
+stage "unit test"
+
+node {
+   git "git@github.com:michaelneale/oaks-trail-ride.git"
+   sh "echo unit test app"
+}
