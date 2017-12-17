@@ -7,7 +7,7 @@ node {
    }
    stage parameters {
         string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
-        // choices are newline separated
+        // choices are newline separate
         choice(choices: 'US-EAST-1\nUS-WEST-2', description: 'What AWS region?', name: 'region')
     }
    stage('Build') {
