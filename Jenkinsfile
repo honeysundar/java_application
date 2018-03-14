@@ -8,6 +8,7 @@ node {
     }
 
    stage('Preparation') { // for display purposes
+      // my code
    
    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'a9ee3dc3-1073-4e39-8f74-31c6fb6ec4cd', url: 'https://github.com/honeysundar/java_application.git']]])
    
