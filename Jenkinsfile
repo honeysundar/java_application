@@ -23,7 +23,7 @@ node {
       }
    }
    stage('deploy') {
-      
+      build 'deployments'
    }
    
 }
