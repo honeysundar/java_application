@@ -2,7 +2,7 @@
 
 // app defns per env, now have only one (dev)
 
-node('worker') {
+node {
   def pipeline = new cicd.Pipeline();
   def testRunner
   def image
