@@ -1,15 +1,23 @@
 #!/usr/bin/env groovy
 
-// app defns per env, now have only one (dev)
+pipeline {
+    agent any
 
-node {
-  def pipeline = new cicd.Pipeline();
-  def testRunner
-  def image
-  String imageName
-
-  stage('Prepare Pipeline') {
-    // Prepare the workspace
-    pipeline.cleanupAndCheckout();
-  }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
