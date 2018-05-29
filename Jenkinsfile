@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/honeysundar/java_application.git']]])
+
             }
         }
         stage('Test') {
