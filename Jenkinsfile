@@ -1,19 +1,8 @@
 pipeline {
-    agent none 
-    stages {
-        stage('Example Build') {
-            agent { sudo docker 'maven:3-alpine' } 
-            steps {
-                echo 'Hello, Maven'
-                sh 'mvn --version'
-            }
-        }
-        stage('Example Test') {
-            agent { sudo docker 'openjdk:8-jre' } 
-            steps {
-                echo 'Hello, JDK'
-                sh 'java -version'
-            }
-        }
+    agent {
+    node {
+        label 'docker'
+        customWorkspace '/some/other/path'
     }
+}
 }
