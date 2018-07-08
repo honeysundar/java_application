@@ -1,19 +1,21 @@
-
-    agent {
-    node {
-        label 'docker'
-        customWorkspace '/var/lib/jenkins'
-    }
-}
-
 pipeline {
-    agent { docker 'maven:3-alpine' } 
+    agent any
+
     stages {
-        stage('Example Build') {
+        stage('Build') {
             steps {
-                sh 'mvn -B clean verify'
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
 }
-
