@@ -17,14 +17,11 @@ agent { label 'docker' }
                  sh 'mvn package'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
+        
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'sudo apt update -y'
+                sh 'sudo apt install tomcat8 -y'
             }
         }
     }
