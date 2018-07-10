@@ -7,7 +7,9 @@ agent { label 'docker' }
     stages {
         
         stage('Checkout') {
+            steps {
         checkout scm
+            }
     }
         stage('Build') {
             steps {
