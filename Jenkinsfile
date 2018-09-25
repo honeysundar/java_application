@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                checkout scm
+                sh 'mvn package'
+                stash includes: '**/target/*.war', name: 'grants'
             }
         }
         stage('Test') {
