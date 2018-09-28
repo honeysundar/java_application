@@ -1,6 +1,6 @@
 pipeline {
-    agent { deployment_node }
-    {
+    node('deployment_node') {
+    
     stages {
         stage('Build') {
             steps {
@@ -17,6 +17,6 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
+   
     }
 }
