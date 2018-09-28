@@ -1,5 +1,5 @@
 pipeline {
-    node('tester1')
+    agent { deployment_node }
     {
     stages {
         stage('Build') {
