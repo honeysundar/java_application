@@ -1,12 +1,10 @@
 pipeline {
-    agent any
+    agent deployment_node
 
     stages {
         stage('Build') {
             steps {
-                checkout scm
-                sh 'mvn package'
-                stash includes: '**/target/*.war', name: 'grants'
+                
             }
         }
         stage('Test') {
