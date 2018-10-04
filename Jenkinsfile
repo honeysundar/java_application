@@ -7,11 +7,24 @@ pipeline {
                 
             }
         }
-        stage('Test') {
+        stage('build docker image') {
             steps {
-                echo 'Testing..'
+                
             }
         }
+        
+        stage('push docker image registory') {
+            steps {
+                
+            }
+        }
+        
+        stage('application deployment by docker') {
+            steps {
+                
+            }
+        }
+        
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
