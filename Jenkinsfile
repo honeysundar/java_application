@@ -3,9 +3,6 @@ pipeline {
     stages {
         stage('checkout & build') {
             steps {
-                checkout scm
-            }
-            steps {
                 sh 'mvn package'
             }
         }
