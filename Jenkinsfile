@@ -1,36 +1,13 @@
 pipeline {
-    node 'deployment_node' {
-    
+    agent { docker { image 'maven:3.3.3' } }
     stages {
-        stage('Build') {
+        stage('checkout & build') {
             steps {
-                
+                checkout scm
+            }
+            steps {
+                sh 'mvn package'
             }
         }
-        stage('build docker image') {
-            steps {
-                
-            }
-        }
-        
-        stage('push docker image registory') {
-            steps {
-                
-            }
-        }
-        
-        stage('application deployment by docker') {
-            steps {
-                
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-   
-    }
     }
 }
