@@ -18,8 +18,7 @@ node {
       stage("Docker build") {
         // sh "cp -r  ~/certs ."
         //  TODO: replace the ecr (repo) with the right repo name.
-       // sh "docker build --no-cache -t repo:${remoteImageTag} \
-                      //              -f ${dockerFilePrefix}.Dockerfile ."
+       sh "docker build -t java_app ."
       }
  
 }
