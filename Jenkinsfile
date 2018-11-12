@@ -5,7 +5,7 @@ node {
       } 
   
  stage("Project Build") {
-        sh "mvn package" 
+        sh "mvn clean package" 
         // TODO: specify how you would build your project
         //
         // @example ---------------------------
