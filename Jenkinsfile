@@ -7,7 +7,7 @@ pipeline {
                         docker { image 'maven:3-alpine' }
                       }
             steps {
-                sh 'mvn publish'
+                sh 'mvn package'
                   }
                       }
         
