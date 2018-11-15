@@ -11,9 +11,9 @@ pipeline {
                   }
                       }
         
-        stage('Test') {
+        stage('Docker image to created') {
             steps {
-                echo 'Testing..'
+                sh 'docker build -t java_app .'
             }
         }
         stage('Deploy') {
