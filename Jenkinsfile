@@ -8,16 +8,11 @@ pipeline {
                       }
             steps {
                 sh 'mvn package'
+                sh 'docker run -t java_app .'
                   }
                       }
         
-        stage('Docker image to created') {
-            steps {
-                image.inside() {
-        sh 'docker build -t java_app .'
-      }
-       }
-        }
+       
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
