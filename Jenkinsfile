@@ -13,14 +13,10 @@ pipeline {
         
         stage('Docker image to created') {
             steps {
-                def customImage = docker.build("maven:3-alpine")
-
-    customImage.inside {
-        
+                image.inside() {
         sh 'docker build -t java_app .'
-                         }
-                
-            }
+      }
+       }
         }
         stage('Deploy') {
             steps {
