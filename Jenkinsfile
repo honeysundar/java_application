@@ -8,10 +8,14 @@ pipeline {
                       }
             steps {
                 sh 'mvn package'
-                sh 'docker run -t java_app .'
+                
                   }
                       }
-        
+        stage('build docker image'){
+            steps {
+            sh 'docker build -t java_app .'
+            }
+        }
        
         stage('Deploy') {
             steps {
