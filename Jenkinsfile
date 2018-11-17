@@ -12,6 +12,7 @@ pipeline {
                   }
                       }
         stage('build docker image'){
+            agent any
             steps {
             sh 'docker build -t java_app .'
             }
