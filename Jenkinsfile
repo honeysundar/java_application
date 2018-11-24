@@ -3,9 +3,10 @@ pipeline {
 
     stages {
         stage('Build') {
-                agent {
+            agent {
                         docker { image 'maven:3-alpine' }
                       }
+                
             steps {
                 sh 'mvn package'
                 
@@ -18,12 +19,7 @@ pipeline {
             }
         }
        
-        stage('Push Docker image TO ECR'){
-            agent any
-            steps {
-            
-            }
-        }
+       
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
