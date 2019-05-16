@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
            
             steps {
-                sh 'mvn package'
+                sh '/usr/bin/mvn package'
                 
                   }
                       }
