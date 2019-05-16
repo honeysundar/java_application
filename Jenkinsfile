@@ -3,12 +3,7 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent {
-                
-                        docker { image 'maven:3-alpine' }
-                
-                      }
-                
+           
             steps {
                 sh 'mvn package'
                 
@@ -17,7 +12,7 @@ pipeline {
         stage('build docker image'){
             agent any
             steps {
-            sh 'docker build -t java_app .'
+            echo 'build docker image'
             }
         }
        
