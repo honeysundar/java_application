@@ -2,18 +2,7 @@ pipeline {
 
     agent any
 
-    tools {
-        maven "Maven"
-    }
-
-    triggers {
-        pollSCM "* * * * *"
-    }
     
-    options {
-        timestamps()
-        ansiColor("xterm")
-    }
 
     parameters {
         booleanParam(name: "RELEASE",
@@ -25,7 +14,7 @@ pipeline {
 
         stage("Build & Deploy SNAPSHOT") {
             steps {
-                sh "mvn -B deploy"
+                sh "mvn -B package"
             }
         }
 
