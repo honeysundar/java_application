@@ -1,29 +1,40 @@
 pipeline {
+
     agent any
+
+    tools {
+        maven "Maven"
+    }
+
+    triggers {
+        pollSCM "* * * * *"
+    }
     
+    options {
+        timestamps()
+        ansiColor("xterm")
+    }
+
+    parameters {
+        booleanParam(name: "RELEASE",
+                description: "Build a release from current commit.",
+                defaultValue: false)
+    }
+
     stages {
-        stage ('Initialize') {
-          
-           
-           steps {
-                
-    sh "mvn package"
-}
-                
-                  }
-                      }
-        stage('build docker image'){
-            agent any
+
+        stage("Build & Deploy SNAPSHOT") {
             steps {
-            echo 'build docker image'
+                sh "mvn -B deploy"
             }
         }
+
        
-       
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+    }
+
+    post {
+        always {
+            deleteDir()
         }
     }
 }
