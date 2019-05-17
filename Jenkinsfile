@@ -6,7 +6,9 @@ pipeline {
           
            
            steps {
-                sh '/usr/bin/mvn package'
+                withMaven() {
+    sh "mvn package"
+}
                 
                   }
                       }
