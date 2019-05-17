@@ -1,29 +1,48 @@
 pipeline {
-
     agent any
-
-    
-
-    parameters {
-        booleanParam(name: "RELEASE",
-                description: "Build a release from current commit.",
-                defaultValue: false)
-    }
-
     stages {
-
-        stage("Build & Deploy SNAPSHOT") {
+        stage('Preparation') {
             steps {
-                sh "mvn -B package"
+                      sh 'mvn archetype:generate -B ' +
+                    '-DarchetypeGroupId=org.apache.maven.archetypes ' +
+                    '-DarchetypeArtifactId=maven-archetype-quickstart ' +
+                    '-DgroupId=com.company -DartifactId=myproject'
             }
         }
-
+    stage('Build') {
+           steps {
+            dir ('myproject') {
+                 
+                sh 'mvn clean install test'
+            }   
+        } 
        
+   }
+   stage('Archive') {
+         steps {
+           dir ('myproject/target') {
+           archive '*.jar'
+         }  
+      } 
+      
+   }  
     }
-
     post {
         always {
-            deleteDir()
+            echo 'I have finished and deleting workspace'
+            deleteDir() 
+        }
+        success {
+            echo 'Job succeeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
+        changed {
+            echo 'Things were different before...'
         }
     }
 }
