@@ -10,6 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn package'
+                echo "DB_ENGINE : $DB_ENGINE"
             }
         }
     }
