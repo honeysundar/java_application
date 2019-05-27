@@ -1,18 +1,12 @@
 pipeline {
-    agent any
-    stages {
-        
-    stage('Build') {
-           steps {
-            
-                 
-                sh 'mvn clean install test'
-            
-        } 
-       
-   }
-   
-      
-   }  
+    agent {
+        docker { image 'node:7-alpine' }
     }
-    
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}
