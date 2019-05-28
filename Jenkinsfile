@@ -1,16 +1,12 @@
 pipeline {
-    agent {
-        docker { image 'maven:3-alpine' }
-          }
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-    }
+    agent any
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'mvn package'
-                echo "DB_ENGINE : $DB_ENGINE"
+                sh 'echo "Hello World"'
+                sh '''
+                    mvn package
+                '''
             }
         }
     }
