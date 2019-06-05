@@ -10,7 +10,9 @@ pipeline {
             }
         }
         Stage('Upload'){
+            {
 curl -u admin:password -T target/grants.war "http://ec2-54-242-220-114.compute-1.amazonaws.com:8081/artifactory/chakri_java_app/"
+        }
         }
            
             }
