@@ -10,7 +10,7 @@ pipeline {
             }
         }
         stage('push') {
-            step {
+            steps {
                 rtUpload  (
     serverId: "jfrog",
     spec:
