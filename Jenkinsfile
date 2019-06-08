@@ -11,7 +11,7 @@ pipeline {
         }
         Stage('Upload'){
             step{
-                rtDownload (
+                rtUpload  (
     serverId: "jfrog",
     spec:
         """{
