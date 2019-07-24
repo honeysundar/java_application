@@ -15,8 +15,7 @@ pipeline {
             }
         }
        
-        
-        
+   
         stage('Deploy') {
             steps {
                 sh 'sudo apt update -y'
