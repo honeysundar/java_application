@@ -9,6 +9,27 @@ pipeline {
                 '''
                 }
                         }
+        
+        
+        stage('push') {
+            steps {
+                rtUpload  (
+    serverId: "jfrog",
+    spec:
+        """{
+          "files": [
+            {
+              "pattern": "target/*war",
+              "target": "jave_app"
+            }
+         ]
+        }"""
+)
+            }
+                        }
+
+        
+        
             }
     
             }
