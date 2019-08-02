@@ -9,7 +9,7 @@ pipeline {
                 '''
                 }
                         }
-        
+       
         
         stage('push') {
             steps {
