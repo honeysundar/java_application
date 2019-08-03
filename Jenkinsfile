@@ -1,7 +1,7 @@
 pipeline {
     agent none
     stages {
-        stage('Back-end') {
+        stage('java_build_inside_docker') {
             agent {
                 docker { image 'maven:3-alpine' }
             }
@@ -9,7 +9,7 @@ pipeline {
                 sh 'mvn --version'
             }
         }
-        stage('Front-end') {
+        stage('java script build') {
             agent {
                 docker { image 'node:7-alpine' }
             }
