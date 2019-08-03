@@ -1,37 +1,21 @@
 pipeline {
-    agent any
+    agent none
     stages {
-        stage('Build') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3-alpine' }
+            }
             steps {
-                sh 'echo "Hello World sundar"'
-                sh '''
-                    mvn package
-                '''
-                }
-                        }
-       
-        
-        stage('push') {
+                sh 'mvn --version'
+            }
+        }
+        stage('Front-end') {
+            agent {
+                docker { image 'node:7-alpine' }
+            }
             steps {
-                rtUpload  (
-    serverId: "jfrog",
-    spec:
-        """{
-          "files": [
-            {
-              "pattern": "target/*war",
-              "target": "java_app"
+                sh 'node --version'
             }
-         ]
-        }"""
-)
-            }
-                        }
-
-        
-        
-            }
-    
-            }
-
-
+        }
+    }
+}
