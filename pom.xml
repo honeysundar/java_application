@@ -36,7 +36,17 @@
 		</dependency>
 	</dependencies>
 
-
+	<repository>
+  <id>dev-azure-com-honeysundar-test</id>
+  <url>https://pkgs.dev.azure.com/honeysundar/_packaging/test/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+	
 	<build>
 		<plugins>
 			<plugin>
