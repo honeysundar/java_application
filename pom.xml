@@ -6,6 +6,19 @@
 	<packaging>war</packaging>
 	<version>1.0.0</version>
 	<name>gratsweb Maven Webapp</name>
+	
+	<repositories>
+	<repository>
+  <id>dev-azure-com-honeysundar-test</id>
+  <url>https://pkgs.dev.azure.com/honeysundar/_packaging/test/maven/v1</url>
+  <releases>
+    <enabled>true</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+		</repositories>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,17 +48,6 @@
 			<version>1.2</version>
 		</dependency>
 	</dependencies>
-
-	<repository>
-  <id>dev-azure-com-honeysundar-test</id>
-  <url>https://pkgs.dev.azure.com/honeysundar/_packaging/test/maven/v1</url>
-  <releases>
-    <enabled>true</enabled>
-  </releases>
-  <snapshots>
-    <enabled>true</enabled>
-  </snapshots>
-</repository>
 	
 	<build>
 		<plugins>
