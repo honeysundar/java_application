@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent none 
     stages {
         stage('java_build_inside_docker') {
             agent {
