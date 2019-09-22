@@ -1,20 +1,13 @@
 pipeline {
-    agent none 
+    agent any
     stages {
-        stage('java_build_inside_docker') {
-            agent {
-                docker { image 'maven:3-alpine' }
-            }
+        stage('Build') {
             steps {
-                sh 'mvn --version'
-            }
-        }
-        stage('java script build') {
-            agent {
-                docker { image 'node:7-alpine' }
-            }
-            steps {
-                sh 'node --version'
+                sh 'mvn package'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
