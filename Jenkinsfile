@@ -9,15 +9,6 @@ pipeline {
                     ls -lah
                 '''
             }
-        stage('Build') {
-            steps {
-                
-                sh '''
-                    echo "Pushing to artifactory"
-               
-                '''
-            }
-        }
     }
 }
 }
