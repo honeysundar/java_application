@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh 'echo "Test step"'
+                sh 'mvn test'
             }
         }
         stage('Deploy') { 
