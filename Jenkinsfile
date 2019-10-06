@@ -1,14 +1,18 @@
+library identifier: 'shared-lib@master', retriever: modernSCM(
+        [$class: 'GitSCMSource',
+         remote: 'https://github.com/honeysundar/shared-lib.git',
+         credentialsId: 'git'])
 pipeline {
     agent any 
     stages {
         stage('Build') { 
             steps {
-                sh 'mvn package'
+                hello.printHello()
             }
         }
         stage('Test') { 
             steps {
-                sh 'mvn test'
+                sh 'echo "mvn test"'
             }
         }
         stage('Deploy') { 
