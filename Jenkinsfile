@@ -14,7 +14,8 @@ pipeline {
         }
         stage('code coverage with sonar ') {
             steps {
-                sh 'echo sonar'
+                sh 'mvn install'
+                sh 'mvn org.sonarsource.scanner.maven:sonar'
             }
         }
     }
