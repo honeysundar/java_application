@@ -24,6 +24,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<springframework.version>4.3.1.RELEASE</springframework.version>
 		<jackson.version>2.7.5</jackson.version>
+		
+		
+		
+<!-- Mandatory properties -->
+
+<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+<!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
+<sonar.organization>my_organization</sonar.organization>
+<sonar.projectKey>my_project</sonar.projectKey>
 	</properties>
 
 	<dependencies>
@@ -60,6 +69,7 @@
                        <target>1.7</target>
                    </configuration>
                </plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -70,6 +80,11 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			<plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.6.1.1688</version>
+      </plugin>
 		</plugins>
 		<finalName>grants</finalName>
 	</build>
