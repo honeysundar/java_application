@@ -3,18 +3,18 @@ pipeline {
     stages {
         stage('Build') { 
             steps { 
-                sh 'echo build' 
+                sh 'mvn package' 
             }
         }
         stage('Test'){
             steps {
-                sh 'echo test'
+                sh 'mvn test'
              
             }
         }
-        stage('Deploy') {
+        stage('code coverage with sonar ') {
             steps {
-                sh 'echo test'
+                sh 'echo sonar'
             }
         }
     }
