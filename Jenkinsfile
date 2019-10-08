@@ -14,7 +14,7 @@ pipeline {
         }
         stage('code coverage with sonar ') {
             steps {
-                sh 'mvn sonar:sonar'
+                sh 'mvn sonar:sonar -X'
             }
         }
     }
