@@ -14,7 +14,7 @@ pipeline {
         }
         stage('code coverage with sonar ') {
             steps {
-                sh 'mvn org.sonarsource.scanner.maven:sonar'
+                sh 'mvn sonar:sonar'
             }
         }
     }
