@@ -14,7 +14,10 @@ pipeline {
         }
         stage('code coverage with sonar ') {
             steps {
+                withSonarQubeEnv('sonar')
+                {
                 sh 'mvn sonar:sonar -X'
+                }
             }
         }
     }
