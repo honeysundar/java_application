@@ -87,6 +87,11 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			<plugin>
+    					<groupId>org.codehaus.mojo</groupId>
+   					<artifactId>sonar-maven-plugin</artifactId>
+   					<version>3.0.2</version>
+			</plugin>
 			
 		</plugins>
 		<finalName>grants</finalName>
