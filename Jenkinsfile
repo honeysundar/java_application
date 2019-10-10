@@ -1,5 +1,5 @@
 pipeline { 
-    agent any 
+    agent slave 
     stages {
         stage('Build') { 
             steps { 
@@ -12,13 +12,6 @@ pipeline {
              
             }
         }
-        stage('code coverage with sonar ') {
-            steps {
-                withSonarQubeEnv('sonar')
-                {
-                sh 'mvn sonar:sonar -X'
-                }
-            }
-        }
+        
     }
 }
