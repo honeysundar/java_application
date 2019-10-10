@@ -1,17 +1,14 @@
-pipeline { 
-    agent { label 'slave' }
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine'
+        }
+    }
     stages {
-        stage('Build') { 
-            steps { 
-                sh 'mvn package' 
-            }
-        }
-        stage('Test'){
+        stage('Build') {
             steps {
-                sh 'mvn test'
-             
+                sh 'mvn -B'
             }
         }
-        
     }
 }
