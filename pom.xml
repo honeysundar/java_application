@@ -33,6 +33,7 @@
 <!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
 <sonar.organization>honeysundar-github</sonar.organization>
 <sonar.projectKey>sonar-java</sonar.projectKey>
+<sonar.login>f3722f37d25c1a67a3e9ce140f995f74e1e74a9b</sonar.login>
 	</properties>
 
 	<dependencies>
