@@ -9,7 +9,7 @@ pipeline {
         
         stage('SonarQube analysis') { 
              steps {
-                sh 'echo "sonar"'
+                sh 'mvn clean install'
         }
         }
         
