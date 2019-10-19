@@ -12,6 +12,6 @@ pipeline {
                 sh 'echo "sonar"'
         }
         }
-        }
+        
     }
 }
