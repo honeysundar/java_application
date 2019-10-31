@@ -31,8 +31,7 @@
 
 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 <!-- Organization and project keys are displayed in the right sidebar of the project homepage -->
-<sonar.organization>honeysundar</sonar.organization>
-<sonar.projectKey>honeysundar-github</sonar.projectKey>
+<sonar.organization>honeysundar-github</sonar.organization>
 <sonar.login>bd27ff8961783e05e9ab3e421a79cdb4a549cd2b</sonar.login> 
 	</properties>
 
