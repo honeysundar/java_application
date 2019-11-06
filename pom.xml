@@ -59,6 +59,7 @@
 		<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
 
 
+
 	</dependencies>
 	
 	<build>
