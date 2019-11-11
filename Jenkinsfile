@@ -1,23 +1,14 @@
 pipeline {
-    agent { 
-        label 'slave' 
+    agent {
+        docker {
+            image 'maven:3-alpine'
+        }
     }
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn -B'
             }
-        }
-        stage('Test') { 
-            steps {
-                sh 'echo Test'
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                sh 'echo Deploy'
-            }
-            
         }
     }
 }
