@@ -1,22 +1,29 @@
 pipeline {
-    agent {
-        label 'slave'
-    }
+   agent { label 'slave' }
     stages {
-        stage('Back-end') {
-            agent {
-                docker { image 'maven:3-alpine' }
-            }
+        
+        stage('Checkout') {
             steps {
-                sh 'mvn --version'
+        checkout scm
+            }
+    }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                 sh 'mvn package'
             }
         }
-        stage('Front-end') {
-            agent {
-                docker { image 'node:7-alpine' }
-            }
+       
+   
+        stage('Deploy') {
             steps {
-                sh 'node --version'
+                sh 'sudo apt update -y'
+                sh 'sudo apt install tomcat8 -y'
+                sh 'sudo apt install tomcat8-admin -y'
+                sh 'sudo apt install tomcat8-user -y'
+                sh 'sudo cp /home/ubuntu/workspace/app_deploy/target/grants.war /var/lib/tomcat8/webapps/'
+                sh 'sudo cp /home/ubuntu/workspace/app_deploy/tomcat-users.xml /etc/tomcat8/'
+                sh 'sudo service tomcat8 restart'
             }
         }
     }
