@@ -1,7 +1,7 @@
 pipeline {
    agent any
    parameters {
-        string(name: 'ENV', defaultValue: 'DEV', description: 'How should I greet the world?')
+        string(choices: ['DEV', 'PROD'],name: 'ENV', defaultValue: 'DEV', description: 'How should I greet the world?')
         choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
     }
     stages {
