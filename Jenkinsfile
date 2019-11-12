@@ -1,10 +1,13 @@
 pipeline {
-   agent none
+   agent any
    parameters {
         string(name: 'ENV', defaultValue: 'DEV', description: 'How should I greet the world?')
     }
     stages {
         stage('Build') {
+           agent { 
+                label 'master'
+            }
             steps {
                 echo 'Building..'
                  sh 'mvn package'
