@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Run Tests') {
             parallel {
-                stage('Test On parallel') {
+                stage('UT Test On parallel') {
                     
                     steps {
                         sh 'echo thread 1'
@@ -14,7 +14,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Test On Linux') {
+                stage('IT Test On parallel') {
                     
                     steps {
                         sh 'echo thread 2'
