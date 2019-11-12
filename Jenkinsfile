@@ -4,12 +4,11 @@ pipeline {
         string(name: 'ENV', defaultValue: 'docker', description: 'How should I greet the world?')
     }
     stages {
-       agent { 
-               label 'docker'
-            }
+       
         stage('Build') {
+           
            agent { 
-                label 'master'
+               label 'docker'
             }
             steps {
                 echo 'Building..'
