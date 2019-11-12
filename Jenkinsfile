@@ -1,23 +1,31 @@
 pipeline {
-    agent any
-        stages {
-            stage('Build') {
-               steps {
-                    git "https://github.com/DeepanVenkatesh/java_application"
-                      }
-                post {
-                    always {
-                            sh "mvn clean package"
-                        }  
-                }
-                }
-            stage('Parallel Test') {
-                parallel {
+    agent none
+    stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Test On parallel') {
+                    
                     steps {
-                    echo " Testing Parallel Steps"
-                    }    
+                        sh 'echo thread 1'
+                    }
+                    post {
+                        always {
+                            sh ' echo post build'
+                        }
+                    }
+                }
+                stage('Test On Linux') {
+                    
+                    steps {
+                        sh 'echo thread 2'
+                    }
+                    post {
+                        always {
+                            sh 'echo post build'
+                        }
+                    }
                 }
             }
         }
-    
+    }
 }
