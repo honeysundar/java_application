@@ -17,7 +17,7 @@ pipeline {
                 label '${params.ENV'
             }
             steps {
-                sh 'echo "${params.ENV} World!"
+                sh 'echo "${params.ENV} World!"'
                 sh 'sudo apt update -y'
                 sh 'sudo apt install tomcat8 -y'
                 sh 'sudo apt install tomcat8-admin -y'
