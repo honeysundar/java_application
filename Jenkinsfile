@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
            
            agent { 
-               label 'docker'
+               label 'dev'
             }
             steps {
                 echo 'Building..'
@@ -19,7 +19,7 @@ pipeline {
    
         stage('Deploy') {
            agent { 
-               label 'docker'
+               label 'dev'
             }
             
             steps {
