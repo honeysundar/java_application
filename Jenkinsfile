@@ -1,13 +1,31 @@
 pipeline {
-    agent {
-         docker { image 'maven:3-alpine' }
-          }
+   agent none
+   parameters {
+        string(name: 'ENV', defaultValue: 'DEV', description: 'How should I greet the world?')
+    }
     stages {
-        stage('Back-end') {
+        stage('Build') {
             steps {
-                sh 'mvn --version'
+                echo 'Building..'
+                 sh 'mvn package'
             }
         }
-        
+       
+   
+        stage('Deploy') {
+            agent { 
+                label '${params.ENV'
+            }
+            steps {
+                sh 'echo "${params.ENV} World!"
+                sh 'sudo apt update -y'
+                sh 'sudo apt install tomcat8 -y'
+                sh 'sudo apt install tomcat8-admin -y'
+                sh 'sudo apt install tomcat8-user -y'
+                sh 'sudo cp /home/ubuntu/workspace/app_deploy/target/grants.war /var/lib/tomcat8/webapps/'
+                sh 'sudo cp /home/ubuntu/workspace/app_deploy/tomcat-users.xml /etc/tomcat8/'
+                sh 'sudo service tomcat8 restart'
+            }
+        }
     }
 }
