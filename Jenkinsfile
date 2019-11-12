@@ -1,15 +1,16 @@
 pipeline {
-    agent any
-    parameters {
-        string(name: 'Greeting', defaultValue: 'Unimoni', description: 'Greetigns')
-        string(name: 'unimoni_env', defaultValue: 'DEV', description: 'Greetigns')
+    agent {
+        label 'slave'
     }
     stages {
-        stage('Example') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3-alpine' }
+            }
             steps {
-                echo "${params.Greeting} World!"
-                 echo "${params.unimoni_env} World!"
+                sh 'mvn --version'
             }
         }
+        
     }
 }
