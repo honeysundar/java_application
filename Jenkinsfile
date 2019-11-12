@@ -1,7 +1,7 @@
 pipeline {
    agent any
    parameters {
-        string(name: 'ENV', defaultValue: 'DEV', description: 'How should I greet the world?')
+        string(name: 'ENV', defaultValue: 'docker', description: 'How should I greet the world?')
     }
     stages {
         stage('Build') {
