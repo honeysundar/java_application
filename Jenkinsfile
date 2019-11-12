@@ -1,17 +1,12 @@
 pipeline {
    agent any
    parameters {
-        choice(choices: ['DEV', 'PROD'], description: 'What AWS region?', name: 'region')
+        choice(choices: ['dev', 'prod'], description: 'What AWS region?', name: 'region')
     }
    
-   
    stages {
-       
         stage('Build') {
            
-           agent { 
-               label 'dev'
-            }
             steps {
                 echo 'Building..'
                  sh 'mvn package'
@@ -24,10 +19,7 @@ pipeline {
        
    
         stage('Deploy') {
-           agent { 
-               label 'dev'
-            }
-            
+           
             steps {
                 
                 sh 'sudo apt update -y'
