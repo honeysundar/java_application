@@ -17,7 +17,7 @@ pipeline {
    
         stage('Deploy') {
             agent { 
-               label 'DEV'
+               label 'docker'
             }
             steps {
                 sh 'echo "${params.ENV} World!"'
