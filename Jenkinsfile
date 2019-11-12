@@ -20,7 +20,7 @@ pipeline {
                label 'docker'
             }
             steps {
-                sh 'echo "${params.ENV} World!"'
+                
                 sh 'sudo apt update -y'
                 sh 'sudo apt install tomcat8 -y'
                 sh 'sudo apt install tomcat8-admin -y'
