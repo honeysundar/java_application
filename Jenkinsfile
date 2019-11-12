@@ -1,5 +1,7 @@
 pipeline {
-   agent any
+   agent { 
+               label 'docker'
+            }
    parameters {
         string(name: 'ENV', defaultValue: 'docker', description: 'How should I greet the world?')
     }
@@ -16,9 +18,7 @@ pipeline {
        
    
         stage('Deploy') {
-            agent { 
-               label 'docker'
-            }
+            
             steps {
                 
                 sh 'sudo apt update -y'
