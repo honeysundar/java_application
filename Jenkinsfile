@@ -3,9 +3,6 @@ pipeline {
     stages {
         
         stage('Back-end') {
-            agent {
-                label 'for-sequential'
-            }
             
             steps {
                 agent {
