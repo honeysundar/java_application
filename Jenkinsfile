@@ -1,9 +1,12 @@
 pipeline {
     agent any
     stages {
+        agent { 
+                label 'slave'
+            }
         stage('Back-end') {
             agent {
-                slave { image 'maven:3-alpine' }
+                docker { image 'maven:3-alpine' }
             }
             
             steps {
