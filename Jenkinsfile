@@ -1,10 +1,11 @@
 pipeline {
    agent any
    parameters {
-        string(choices: ['DEV', 'PROD'],name: 'ENV', defaultValue: 'DEV', description: 'How should I greet the world?')
-        choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
+        choice(choices: ['DEV', 'PROD'], description: 'What AWS region?', name: 'region')
     }
-    stages {
+   
+   
+   stages {
        
         stage('Build') {
            
@@ -14,6 +15,10 @@ pipeline {
             steps {
                 echo 'Building..'
                  sh 'mvn package'
+                 script {
+              timeout(time: 10, unit: 'MINUTES') {
+                input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
+              }
             }
         }
        
