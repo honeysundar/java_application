@@ -1,15 +1,16 @@
 pipeline {
-    agent any
+    agent none
     stages {
-        agent { 
-                label 'slave'
-            }
+        
         stage('Back-end') {
             agent {
-                docker { image 'maven:3-alpine' }
+                label 'for-sequential'
             }
             
             steps {
+                agent {
+                docker { image 'maven:3-alpine' }
+            }
                 sh 'mvn --version'
             }
         }
