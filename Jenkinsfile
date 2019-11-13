@@ -21,7 +21,7 @@ pipeline {
                     "files": [
                 {
                 "pattern": "target/*.war",
-                "target": "jave_app/"
+                "target": "java_app/"
                 }
          ]
     }''',
