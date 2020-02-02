@@ -13,11 +13,6 @@ pipeline {
     }
 }
 
-
-
-
-
-
 node {
  
  stage("Checkout") {
