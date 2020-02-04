@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'echo "sundar"' 
+                sh 'mvn package' 
             }
         }
         stage('Test') { 
