@@ -6,12 +6,22 @@ pipeline {
                 sh 'mvn clean package'
         }
         }
-        stage('SonarQube analysis') { 
+        
+        stage('push to jfrog') { 
              steps {
-                withSonarQubeEnv('sonar') { 
-                sh 'mvn sonar:sonar'
+                rtUpload (
+                serverId: 'jfrog',
+                spec: '''{
+                    "files": [
+                {
+                "pattern": "target/*.war",
+                "target": "java_app/"
+                }
+         ]
+    }''',
+                )
                 }
         }
         }
+        
     }
-}
