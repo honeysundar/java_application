@@ -1,27 +1,14 @@
 pipeline {
-    agent { label 'java-slave' }
-    stages {
-        stage('Build') { 
-             steps {
-                sh 'mvn clean package'
+    agent {
+        docker {
+            image 'maven:3-alpine'
         }
-        }
-        
-        stage('push to jfrog') { 
-             steps {
-                rtUpload (
-                serverId: 'jfrog',
-                spec: '''{
-                    "files": [
-                {
-                "pattern": "target/*.war",
-                "target": "java_app/"
-                }
-         ]
-    }''',
-                )
-                }
-        }
-        }
-        
     }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+    }
+}
