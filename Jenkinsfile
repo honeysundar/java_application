@@ -1,13 +1,12 @@
 pipeline {
-    agent docker {
-        docker {
-            image 'maven:3-alpine'
-        }
-    }
+    agent any 
     stages {
-        stage('Build') {
+        stage('Back-end') {
+            agent {
+                docker { image 'maven:3-alpine' }
+            }
             steps {
-                sh 'mvn package'
+                sh 'mvn --version'
             }
         }
     }
