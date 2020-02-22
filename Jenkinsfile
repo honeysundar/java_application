@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker-slave {
+        docker {
             image 'maven:3-alpine'
         }
     }
