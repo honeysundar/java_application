@@ -1,11 +1,11 @@
 pipeline { 
     agent any  
     stages { 
-        stage('checkout') { 
-            scm checkout
-        }
-        stage('build') { 
-            mvn clean install
+        stage('Build') { 
+            steps { 
+              // echo 'This is a minimal pipeline.'
+                sh 'mvn clean install'
+            }
         }
     }
 }
