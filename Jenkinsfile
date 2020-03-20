@@ -1,13 +1,22 @@
-pipeline { 
-    agent any  
-    stages { 
-        stage('Build') { 
-            steps { 
-              // echo 'This is a minimal pipeline.'
+pipeline {
+    agent {
+        label 'linux-node'
+          }
+
+    stages {
+        stage('Build') {
+            steps {
                 sh 'mvn package'
-                sh 'docker build -t testBuild .'
-                sh 'docker run -t testBuild'
-                                
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
