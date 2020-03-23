@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'linux-node'
+        label 'worker'
           }
 
     stages {
