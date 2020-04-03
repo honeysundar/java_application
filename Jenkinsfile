@@ -1,25 +1,11 @@
 pipeline {
     agent {
-        label 'worker'
-          }
-
+        docker { image 'node:7-alpine' }
+    }
     stages {
-        stage('Build') {
-            steps {
-                sh 'mvn package'
-            }
-        }
         stage('Test') {
-            agent {
-        label 'master'
-          }
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'node --version'
             }
         }
     }
