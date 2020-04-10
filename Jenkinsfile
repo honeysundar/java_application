@@ -7,6 +7,7 @@ pipeline {
                     
                     steps {
                         sh 'echo thread 1'
+                        sh 'sleep 10'
                     }
                     post {
                         always {
@@ -18,6 +19,7 @@ pipeline {
                     
                     steps {
                         sh 'echo thread 2'
+                        sh 'sleep 10'
                     }
                     post {
                         always {
