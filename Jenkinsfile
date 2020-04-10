@@ -1,25 +1,32 @@
 pipeline {
     agent any
     stages {
-        stage('Build') { 
-             steps {
-                sh 'echo build'
-                script {
-              timeout(time: 10, unit: 'MINUTES') {
-                input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
-              }
+        stage('Run Tests') {
+            parallel {
+                stage('UT Test On parallel') {
+                    
+                    steps {
+                        sh 'echo thread 1'
+                    }
+                    post {
+                        always {
+                            sh ' echo post build'
+                        }
+                    }
+                }
+                stage('IT Test On parallel') {
+                    
+                    steps {
+                        sh 'echo thread 2'
+                    }
+                    post {
+                        always {
+                            sh 'echo post build'
+                        }
+                    }
+                }
             }
         }
-            
-        }
-        stage('SonarQube analysis') { 
-             steps {
-                
-                sh 'echo sonar'
-              
-        }
-        }
-        
-        }
-        
     }
+}
+© 2020 GitHub, Inc.
