@@ -1,39 +1,13 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
     stages {
-        stage('Build') { 
-             steps {
-                sh 'mvn clean package'
+        stage('Example') {
+            steps {
+                echo "${params.Greeting} World!"
+            }
         }
-        }
-        stage('UT') { 
-             steps {
-                sh 'mvn test'
-        }
-        }
-        stage('SonarQube analysis') { 
-             steps {
-                withSonarQubeEnv('sonar') { 
-                sh 'mvn sonar:sonar'
-                }
-        }
-        }
-        
-           stage('push to jfrog') { 
-             steps {
-                rtUpload (
-                serverId: 'jfrog',
-                spec: '''{
-                    "files": [
-                {
-                "pattern": "target/*.war",
-                "target": "java_app/"
-                }
-         ]
-    }''',
-                )
-                }
-        }
-    } 
+    }
 }
-        
