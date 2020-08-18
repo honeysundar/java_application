@@ -1,5 +1,5 @@
 pipeline {
-    agent {  label 'worker_linux' }
+    agent {  label 'worker-linux' }
     stages {
         stage('Build') { 
              steps {
