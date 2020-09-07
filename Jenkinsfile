@@ -6,13 +6,7 @@ pipeline {
                 sh 'mvn clean package'
         }
         }
-        stage('SonarQube analysis') { 
-             steps {
-                withSonarQubeEnv('sonar-way') { 
-                sh 'mvn sonar:sonar'
-                }
-        }
-        }
+        
         stage('push to jfrog') { 
              steps {
                 rtUpload (
