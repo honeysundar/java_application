@@ -18,12 +18,12 @@ pipeline {
        stage('Deploy Image') {
            agent any
           steps{
-          script {
+          
               withDockerRegistry([ credentialsId: "docker-hub", url: "" ])
              {
                  sh 'docker push honeysundar/java_sra_007'
             }
-    }
+    
   }
 }    
                 
