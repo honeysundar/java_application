@@ -12,9 +12,7 @@ pipeline {
        stage ('dockerization') {
            agent any
             steps{
-              script {
-              dockerImage = docker.build("honeysundar/java_app_sra_ninika")
-                }
+              sh 'docker build -t honeysundar/java_sra_007 .'
                  }
        }
        stage('Deploy Image') {
@@ -23,8 +21,7 @@ pipeline {
           script {
               withDockerRegistry([ credentialsId: "docker-hub", url: "" ])
              {
-                 dockerImage.push("${env.BUILD_NUMBER}")
-                 dockerImage.push("latest")
+                 sh 'docker push honeysundar/java_sra_007'
             }
     }
   }
