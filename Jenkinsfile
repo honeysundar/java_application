@@ -1,6 +1,6 @@
 
 pipeline { 
-    agent agent-sra
+    agent agent
     options {
         skipStagesAfterUnstable()
     }
