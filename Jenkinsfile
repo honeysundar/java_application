@@ -1,6 +1,6 @@
 
 pipeline { 
-    agent agent
+    agent lable 'agent'
     options {
         skipStagesAfterUnstable()
     }
