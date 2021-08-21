@@ -1,6 +1,6 @@
 pipeline {
     
-    agent {label 'slave_ubuntu'}
+    agent {label 'dynamic_slaves'}
     stages {
         stage('Run Tests') {
             parallel {
