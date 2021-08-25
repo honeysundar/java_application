@@ -1,8 +1,8 @@
 pipeline {
-    
-    agent {label 'dynamic_slaves'}
+    agent {label 'dynamic_docker'}
     stages {
         stage('Run Tests') {
+        
             parallel {
                 stage('UT Test On parallel') {
                     
