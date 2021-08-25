@@ -24,6 +24,7 @@ pipeline {
                         always {
                             sh 'echo post build'
                         }
+                        
                     }
                 }
             }
