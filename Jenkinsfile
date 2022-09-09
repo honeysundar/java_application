@@ -5,7 +5,7 @@ pipeline {
             
         
             agent {
-                docker { image 'maven:3.8.1-adoptopenjdk-11' }
+                docker { image 'lacosted/mavenjava' }
             }
             steps {
                 sh 'mvn --version'
